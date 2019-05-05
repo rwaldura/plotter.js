@@ -1,0 +1,34 @@
+<html>
+<head>
+<script type="text/javascript">
+	
+	function f(x)
+	{
+		return x + 1
+	}
+	
+	function draw()
+	{
+		var canvas = document.getElementById("plot")
+		var context = canvas.getContext("2d")
+		
+		var x = 0
+		while (x < 500)
+		{
+		    var y = f(x)
+		    context.fillRect(x, y, 1, 1)
+			x = x + 10
+		}
+	}
+	
+</script>
+</head>
+<body onload="draw()">
+<h1>Plot</h1>
+<canvas id="plot" width="500" height="500">blub</canvas>
+</body>
+</html>
+
+<!--
+http://www.javascripter.net/faq/plotafunctiongraph.htm
+-->

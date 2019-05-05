@@ -1,0 +1,53 @@
+<html>
+<head>
+<script type="text/javascript">
+	
+	function f(x)
+	{
+		return x / 2 + 20
+	}
+
+	function draw(step, max)
+	{
+		var canvas = document.getElementById("plot")
+		var context = canvas.getContext("2d")
+		
+		draw_axis(context, max)
+		draw_f(context, step, max)
+	}
+	
+	function draw_axis(c, max)
+	{
+		c.beginPath()
+	    c.moveTo(0, 0)
+		c.lineTo(0, max)
+		c.lineTo(max, max)		
+		c.stroke()
+	}
+	
+	function draw_f(c, step, max)
+	{
+		c.beginPath()
+		c.strokeStyle = "rgb(222,0,0)"
+		c.lineWidth = 4
+		
+	    c.moveTo(0, max - f(0))
+		
+		for (var x = step; x <= max; x += step) {
+		    c.lineTo(x, max - f(x))
+		}
+		
+		c.stroke()
+	}
+	
+</script>
+</head>
+<body onload="draw(50, 500)">
+<h1>Plot</h1>
+<canvas id="plot" width="500" height="500">blub</canvas>
+</body>
+</html>
+
+<!--
+http://www.javascripter.net/faq/plotafunctiongraph.htm
+-->
